@@ -1,0 +1,52 @@
+<%= render 'users/sidebar' %></br>
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="well">
+
+          <% provide(:title, 'All users') %>
+          <h1>Authorized Users</h1>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td style="font-size:10px"><%= user.name %></td>
+                      <td style="font-size:10px"><%= user.email %></td>
+                      <td style="font-size:10px"><%= user_status(user) %></td>
+                    </tr>
+                  <% end %>
+              </table>
+          </div>
+        </div>
+        <h3>Invite Users</h3>
+        <%= form_for @invite, :url => project_invites_path do |f| %>
+
+              <%= f.hidden_field :user_group_id, :value => @invite.user_group_id, readonly: true %>
+
+              <%= f.hidden_field :subdomain, value: @subdomain, readonly: true, class: 'form-control' %>
+
+            <div class="field form-group">
+              <%= f.label :email %>
+              <%= f.text_field :email, class: 'form-control' %>
+            </div>
+            <div style="padding-bottom:250px;"class="form-group">
+              <%= f.submit :submit, class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

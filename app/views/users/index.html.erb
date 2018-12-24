@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <% provide(:title, 'All users') %>
+    <h1>Authorized Users</h1>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+            <% @user.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user_status(user) %></td>
+              </tr>
+            <% end %>
+        </table>
+
+        <h3 class="extra-margin-top">Invite Users</h3>
+
+        <%= form_for @invite, :url => invites_path do |f| %>
+          <%= f.hidden_field :user_group_id, :value => @invite.user_group_id %>
+
+          <div class="field form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+          <div class="actions form-group">
+            <%= f.submit :submit, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+

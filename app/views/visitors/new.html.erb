@@ -1,0 +1,131 @@
+<div class="container-fluid" id="News">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2"><br/>
+      <h2 class="text-center news">Make your autoshop management easier than ever.</h2>
+      <h3 class="text-center" style="padding-bottom:20px;">Be more efficient in seconds</h3>
+        <div class="col-sm-8 col-sm-offset-2"><br/>
+          <ul class="inline" style="list-style-type:none;text-align:center">
+            <li><%= link_to "Try for Free", signup_path(plan: @basic_plan.id), class: 'btn btn-default-outline btn-lg' %></li>
+            <li style="padding-top:20px;padding-bottom:10px;"><%= link_to "Request a Demo", new_contact_path, class: 'btn btn-default-outline btn-lg' %>
+            </li>
+            <br/>
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>
+<div style="padding: 10px 40px;" class="container-fluid">
+  <div class="row">
+    <div style="text-align:center" class="col-sm-6 col-sm-offset-3">
+      <h2>Autoshop management made simple</h2>
+      <h4>Nomad Auto is very simple tool to use, has powerful features, and only takes seconds to set up. Start today for free by signing up and inviting the rest of your team. We offer an all-in-one tool for your autoshop business.</h4>
+      <h4>Nomad Auto was written to assist auto-mechanic service companies with their customer relationships and business processes. 
+      It will help to keep track of their customers vehicles and the repairs that have been completed. 
+      It will generate and print invoices, help find parts and provide repair estimates.</h4>
+      <div style="text-algin:center; padding-top:40px;"><%= link_to "Create Free Account", signup_path(plan: @basic_plan.id), class: 'btn btn-primary btn-lg' %></li>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="container-fluid text-center">
+  <h2>SERVICES</h2>
+  <h4>What we offer</h4>
+  <br>
+
+<div style="padding:25px;margin:0px 50px 0px 50px;background-color:#FFF" class="container-fluid">
+  
+  <div class="row">
+    <div class="col-md-2 col-md-offset-2">
+          <div style="font-size:3em;text-align:center;">
+            <i style="font-size: 130px" class="glyphicon glyphicon-tasks logo"></i>
+          </div>
+          <h4 style="text-align:center">Work Tasks</h2>
+          <h4>Help assign tasks and keep your team organized. All in one place.</h4>
+    </div>
+ 
+    <div class="col-md-2">
+      <div style="font-size:3em;text-align:center;">
+          <i style="font-size: 130px" class="glyphicon glyphicon-road logo"></i>
+        </div>
+        <h4 style="text-align:center">Vehicle Raodmap</h2>
+        <h4>Help assign tasks and keep your team organized. All in one place.</h4>
+    </div>
+
+    <div class="col-md-2">
+      <div style="font-size:3em;text-align:center;">
+          <i style="font-size: 130px" class="glyphicon glyphicon-pencil logo"></i>
+        </div>
+        <h4 style="text-align:center">Invoice Generation</h2>
+        <h4>Help assign tasks and keep your team organized. All in one place.</h4>
+    </div>
+
+    <div class="col-md-2">
+      <div style="font-size:3em;text-align:center;">
+          <i style="font-size: 130px" class="glyphicon glyphicon-search logo"></i>
+        </div>
+        <h4 style="text-align:center">Part Finder</h2>
+        <h4>Help assign tasks and keep your team organized. All in one place.</h4>
+    </div>
+
+  </div>
+
+    </br></br></br>
+    
+  <div class="row">
+
+    <div class="col-md-2 col-md-offset-2">
+      <div style="font-size:3em;text-align:center;">
+        <i style="font-size: 130px" class="glyphicon glyphicon-barcode logo"></i>
+      </div>
+      <h4 style="text-align:center">Repair Estimates</h2>
+      <h4>Help assign tasks and keep your team organized. All in one place.</h4>
+    </div>
+
+  <div class="col-md-2">
+    <div style="font-size:3em;text-align:center;">
+      <i style="font-size: 130px" class="fa fa-mobile logo"></i>
+    </div>
+    <h4 style="text-align:center">Mobile Friendly</h2>
+    <h4>Help assign tasks and keep your team organized. All in one place.</h4>
+  </div>
+
+  <div class="col-md-2">
+    <div style="font-size:3em;text-align:center;">
+      <i style="font-size: 130px" class="fa fa-users logo"></i>
+    </div>
+    <h4 style="text-align:center">Team Collaboration</h2>
+    <h4>Help assign tasks and keep your team organized. All in one place.</h4>
+
+  </div>
+
+  <div class="col-md-2">
+    <div style="font-size:3em; text-align:center;">
+      <i style="font-size: 130px" class="fa fa-database logo"></i>
+    </div>
+    <h4 style="text-align:center">Data Normalization</h2>
+    <h4>Help assign tasks and keep your team organized. All in one place.</h4>
+  </div>
+
+  </div>
+</div>
+
+</div>
+
+<div class="container-fluid" id="SignUp">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="text-center">
+          <h3 class="text-center news">Subscribe to our newsletter</h3>
+
+          <%= form_for @visitor do |f| %>
+            <%= f.text_field :email, label: false, :placeholder => 'Your email address...', class: 'form-control visitors' %>
+            <br/>
+            <%= f.submit "Subscribe", :class => "btn btn-default-outline btn-lg" %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+
+

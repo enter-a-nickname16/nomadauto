@@ -1,0 +1,23 @@
+<%= form_for([@task.project, @task]) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select([['Open'],['Pending'],['Closed']]), class: "form-control"  %>
+
+    <%= f.label :priority %>
+    <%= f.select :priority, options_for_select([['High'],['Medium'],['Low']]), {}, class: "form-control" %>
+
+    <%= f.label :owner %>
+    <% options_from_collection_for_select(current_account.user_users, :name, :name) %>
+    <%= f.collection_select(:owner, current_account.user_users, :name, :name) %>
+
+    <%= f.hidden_field :user_id, value: current_user.id, readonly: true, class: 'form-control' %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+    </br>
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+<% end %>
+<td><%= link_to "delete", [@task.project, @task, @activities], method: :delete, data: { confirm: "Are you sure?" } %></td>
+<td><%= link_to "Back", project_tasks_path(@project) %></td>

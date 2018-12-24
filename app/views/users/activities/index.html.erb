@@ -1,0 +1,24 @@
+<%= render 'users/sidebar' %></br>
+<!-- Page content -->
+<div id="page-content-wrapper">
+  <!-- Keep all page content within the page-content inset div! -->
+  <div class="page-content inset">
+
+  <h1>Activities</h1>
+    <div class="col-md-12">
+      <table class="table">
+      <% @activities.each do |activity| %>
+        <%= div_for activity do %>
+          <tr>
+            <td><%= link_to activity.user.name %>
+
+            <%= render "users/activities/#{activity.trackable_type.underscore}/#{activity.action}", activity: activity %>
+
+          </tr>
+
+        <% end %>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

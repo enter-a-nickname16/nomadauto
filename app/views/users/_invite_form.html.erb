@@ -1,0 +1,40 @@
+<% provide(:title, 'Sign up') %>
+<%= form_for @user, :url => { :action => "create" }, :html => { :method => "post" }  do |f| %>
+    <%= hidden_field_tag 'plan', params[:plan] %>
+
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div class="field form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.text_field :email, value: Invite.where(token: @token).distinct.pluck(:email), readonly: true, placeholder: "Email", class: 'form-control' %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.label :name, 'Full Name' %>
+        <%= f.text_field :name, autocomplete: "off", placeholder: "Full Name", class: 'form-control'  %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, placeholder: "Password", class: 'form-control'  %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: 'form-control'  %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.hidden_field :subdomain, value: Invite.where(token: @token).distinct.pluck(:subdomain), readonly: true, class: 'form-control' %>
+    </div>
+
+        <% if @token != nil %>
+            <%= hidden_field_tag :invite_token, @token %>
+        <% end %>
+
+    <div class="form-group">
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
+    </div>
+    </br></br>
+<% end %>
+

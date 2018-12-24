@@ -1,0 +1,39 @@
+<% provide(:title, 'Sign up') %>
+<%= form_for(@user) do |f| %>
+    <%= hidden_field_tag 'plan', params[:plan] %>
+
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div class="field form-group">
+        <%= f.label :name, 'Full Name' %>
+        <%= f.text_field :name, autocomplete: "off", placeholder: "Full Name", class: 'form-control'  %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.label :email,  'Email' %>
+        <%= f.text_field :email, placeholder: "Email", class: 'form-control'  %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.label :password,  'Password' %>
+        <%= f.password_field :password, placeholder: "Password", class: 'form-control'  %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.label :password_confirmation, "Password Confirmation" %>
+        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: 'form-control'  %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.label :subdomain, "Nomad Agile URL" %><br />
+        <%= f.text_field :subdomain, autocomplete: "off", placeholder: "Nomad Agile URL", class: 'form-control', id: 'special' %>
+        <span class="input-group-addon">.nomadagile.com</span>
+    </div>
+
+    </br>
+    <div class="form-group">
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
+    </div>
+    </br></br>
+<% end %>
+

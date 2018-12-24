@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div style="padding-top:50px;" class="col-md-8 col-md-offset-2">
+      <div class="text-center">
+        <% if params[:plan] == '2' %>
+          <h1>Pro Account</h1>
+          <p>Sign up for the pro account for $10/month and get access!</p>
+        <% elsif params[:plan] == '1' %>
+          <h1>Basic Account</h1>
+          <p>Sign up for free and get basic access!</p>
+        <% else %>
+          <h1>Accept Invite</h1>
+          <p>We just need a few things</p>
+        <% end %>
+      </div>
+      <div class="well">
+        <h2>Sign up</h2>
+        <% if params[:plan] == '2' %>
+          <%= render "pro_form" %>
+        <% elsif params[:plan] == '1' %>
+          <%= render "basic_form" %>
+        <% else %>
+          <%= render "invite_form" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

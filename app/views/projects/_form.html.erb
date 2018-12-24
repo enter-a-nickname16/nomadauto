@@ -1,0 +1,11 @@
+<%= form_for(@project, html: { class: 'form-horizontal' }) do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+
+    <%= f.label :details %>
+    <%= f.text_area :details, class: 'form-control' %>
+
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+<% end %>
+<td><%= link_to "delete", @project, method: :delete, data: { confirm: "Are you sure?" } %></td>

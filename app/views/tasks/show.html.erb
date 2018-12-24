@@ -1,0 +1,40 @@
+<%= render 'users/sidebar' %></br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="well">
+    <p id="notice"><%= notice %></p>
+
+      <div class="card">
+        <div class="card-header">
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h3>Title: <%= @task.title %></h3></li>
+          <li class="list-group-item"><h3>Priority: <%= @task.priority %></h3></li>
+          <li class="list-group-item"><h3>Owner: <%= @task.owner %></h3></li>
+          <li class="list-group-item"><h3>Description: <%= @task.description %></h3></li>
+        </br>
+          <%= link_to "Delete", [@task.project, @task, @activities],
+                      class: 'btn btn-default',
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+
+          <%= link_to "Edit", edit_project_task_path(@project),
+                      class: 'btn btn-default' %>
+          <%= link_to "Back", project_tasks_path(@project),
+                      class: 'btn btn-default' %>
+        </ul>
+       </div>
+      </div>
+    </div>
+    <div class="well">
+      <h3><%= @task.comments.count %> Comments</h3>
+       <%= render @task.comments %>
+
+      <h4>Add a comment:</h4>
+      <%= render 'comments/form' %>
+    </div>
+  <div>
+</div>
+
+

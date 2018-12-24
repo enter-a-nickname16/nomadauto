@@ -1,0 +1,12 @@
+<%= form_for([@list.project, @list]) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :new %>
+    <%= f.text_field :new %>
+
+    <%= f.label :position %>
+    <%= f.number_field :position %>
+    </br>
+    </br>
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,34 @@
+<%= form_for @account do |f| %>
+  <%= f.fields_for :owner do |o| %>
+
+
+  <%= hidden_field_tag 'plan', params[:plan] %>
+
+  <div class="field form-group">
+    <%= o.label :name %><br />
+    <%= o.text_field :name, autofocus: true, autocomplete: "off", class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :subdomain %><br />
+    <%= f.text_field :subdomain, autocomplete: "off", class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= o.label :email %><br />
+    <%= o.email_field :email, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= o.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= o.password_field :password, autocomplete: "off", class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= o.label :password_confirmation %><br />
+    <%= o.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+  </div> 
+  <div class="actions form-group">
+    <%= f.submit "Sign up", class: 'btn btn-success' %>
+  </div>
+  <% end %>
+<% end %>

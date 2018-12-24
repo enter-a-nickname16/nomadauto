@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+html, body {
+  height: 100%;
+
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.nav {
+  padding: 0px 0px 0px 10px;
+}
+
+// Home Page Styles
+.home-callout {
+  color: #4286f4;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.news {
+  width: 100%;
+  font-size: 72px;
+  padding: 50px;
+}
+
+.back {
+  background-color:red;
+}
+.contact {
+  font-size: 38px;
+  padding-left: 50px;
+}
+
+#visitor_email {
+  min-height:50px;
+  border: solid 1px black;
+}
+
+.value {
+  width: 100px;
+}
+
+.alert-notice {
+  display: none;
+}
+
+.home-signup-links {
+  margin-top: 30px;
+}
+
+.flash-container {
+  position: absolute;
+  width: auto;
+}
+
+.alert-notice, .alert-alert {
+  text-align: center;
+  background: rgba(255, 0, 0, 0.3);
+  border-color: rgba(255, 0, 0, 0.5);
+  margin-top: -14px;
+}
+
+.sections {
+  display: inline;
+  float: right;
+  width: 175px;
+  margin: 5px;
+}
+
+.actions {
+  float: left;
+  width: 150px;
+  margin: 0px;
+  margin-left: -30px;
+}
+
+.projects {
+  margin: auto;
+  width: 600px;
+  align: center;
+}
+
+.filterbox {
+  height: 110px;
+  margin-bottom: 15px;
+  padding: 3px;
+}
+
+#addtask {
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  color: white !important;
+}

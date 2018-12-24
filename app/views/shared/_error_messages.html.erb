@@ -1,0 +1,16 @@
+<% if object.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      The form contains <%= pluralize(object.errors.count, "error") %>.
+      </h4>
+    </div>
+    <ul>
+    <div clas="panel-body">
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+    </ul>
+  </div>
+<% end %>

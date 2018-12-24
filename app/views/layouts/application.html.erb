@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nomad Auto</title>
+    <%= csrf_meta_tags %>
+    <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="HandheldFriendly" content="true">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://js.stripe.com/v2/", type: 'text/javascript' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+    <%= javascript_include_tag "https://code.highcharts.com/highcharts.js", type: 'application/javascript' %>
+    <!-- Global site tag (gtag.js) - Google Ads: 947127677 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-947127677"></script>
+    <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+  </head>
+
+  <body>
+  <% if not logged_in? && request.subdomain.present? %>
+    <%= render 'layouts/header' %>
+  <% end %>
+
+  <div class="col-md-6 col-md-offset-3">
+      <% flash.each do |type, msg| %>
+          <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+      <% end %>
+  </div>
+
+  <%= yield %>
+
+  <% if not logged_in? && request.subdomain.present? %>
+    <%= render 'layouts/footer' %>
+  <% end %>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105637220-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-105637220-2');
+    gtag('config', 'AW-947127677');
+  </script>
+  </body>
+</html>

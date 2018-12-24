@@ -1,0 +1,84 @@
+<%= render 'users/sidebar' %></br>
+  <!-- Page content -->
+  <div id="page-content-wrapper">
+    <!-- Keep all page content within the page-content inset div! -->
+    <div class="page-content inset">
+      <div class="row">
+      <div class="container-fluid" id="Tasks">
+        <div class="well">
+          <%if Task.where(project_id: @project) %>
+            <div class="col-xs-12 col-md-6 col-md-offset-0">
+              <h4>Priorities Graph</h4>
+              <%= bar_chart @project.tasks.group(:priority).count %>
+            </div>
+            <div class="col-xs-12 col-md-6 col-md-offset-0">
+              <h4>Status Graph</h4>
+              <%= line_chart @project.tasks.group(:status).count %>  </br></br>
+            </div>
+          <% end %>
+        <div class="col-md-12 col-md-offset-0">
+        <%= link_to "Create New Ticket", new_project_task_path(), class: 'btn btn-default', id: "addtask" %>
+        </div>
+        <%= form_tag project_tasks_path, method: :get, class: "form-inline" do %>
+            <div class="col-md-4">
+            <%= label_tag "Status" %>
+            <%= select_tag("status", options_for_select([['Open'],['Pending'],['Closed']]), :multiple => true, class: "filterbox" ) %>
+            </div>
+            <div class="col-md-4">
+            <%= label_tag "Priority" %>
+            <%= select_tag("priority", options_for_select([['High'],['Medium'],['Low']]), :multiple => true, class: "filterbox" ) %>
+            </div>
+            <div class="col-md-4">
+            <%= label_tag "User" %>
+            <%= select_tag "user", options_from_collection_for_select(current_account.user_users, 'id', 'name'), :multiple => true, class: "filterbox" %>
+            </div>
+            <div class="col-md-6">
+            <%= submit_tag "Search", name: nil, class: 'btn btn-default' %>
+            </div>
+            <div class="col-md-6">
+            <%= link_to "Reset", project_tasks_path, class: 'btn btn-default' %>
+            </div>
+        <% end %>
+            <div class="col-md-12">
+              <table class="table">
+                <thead>
+                 <tr id="table_sort">
+                   <th class="center"><%= sortable "title" %></th>
+                   <th class="center"><%= sortable "status" %></th>
+                   <th class="center"><%= sortable "priority" %></th>
+                   <th class="center"><%= sortable "user" %></th>
+                   <th class="center"><%= sortable "created_at" %></th>
+                   <th class="center"><%= sortable "updated_at" %></th>
+                 </tr>
+                </thead>
+                <tbody>
+                    <%if Task.where(project_id: @project) %>
+                      <% @tasks.each do |task| %>
+                        <tr>
+                          <td class="center" style="vertical-align:middle"><%= link_to task.title, project_task_path(@project, task) %></td>
+                          <td class="center" style="vertical-align:middle"><%= task.status %></td>
+                          <td class="center" style="vertical-align:middle"><%= task.priority %></td>
+                          <td class="center" style="vertical-align:middle"><%= if task.owner == nil
+                                                                                  task.user.name
+                                                                              else
+                                                                                  task.owner
+                                                                              end %></td>
+                          <td class="center" style="vertical-align:middle"><%= "#{time_ago_in_words(Time.at(task.created_at.to_i))} ago" %></td>
+                          <td class="center" style="vertical-align:middle"><%= "#{time_ago_in_words(Time.at(task.updated_at.to_i))} ago" %></td>
+                        </tr>
+                      <% end %>
+                    <% end %>
+                </tbody>
+              </table>
+
+              <%= form_tag import_project_tasks_path do %>
+                   <%= file_field_tag :file %>
+                   <%= submit_tag "Upload" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

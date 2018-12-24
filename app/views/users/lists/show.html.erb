@@ -1,0 +1,22 @@
+<%= render 'users/sidebar' %></br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="well">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>New:</strong>
+        <%= @list.new %>
+      </p>
+
+      <p>
+        <strong>Position:</strong>
+        <%= @list.position %>
+      </p>
+
+      <%= link_to 'Edit', edit_list_path(@list) %> |
+      <%= link_to 'Back', project_lists_path %>
+    </div>
+  </div>
+</div>

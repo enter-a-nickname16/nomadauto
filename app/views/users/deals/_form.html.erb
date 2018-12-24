@@ -1,0 +1,14 @@
+<%= form_for([@deal.project, @deal]) do |f| %>
+    <%= f.label :company %>
+    <%= f.text_field :company, autofocus: true, class: 'form-control' %>
+    </br>
+    <%= f.label :status %>
+    <%= f.select :status, ['','Lead', 'Prospect', 'Pending', 'Sold'], autofocus: true, class: 'form-control'%>
+    </br>
+    <%= f.label :value %>
+    <%= f.text_field :value, autofocus: true, class: 'form-control' %>
+    </br>
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+<% end %>
+<td><%= link_to "Delete", [@deal.project, @deal, @activities], method: :delete, data: { confirm: "Are you sure?" } %></td>
+<td><%= link_to "Back", project_deals_path(@project) %></td>

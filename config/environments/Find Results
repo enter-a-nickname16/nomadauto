@@ -1,0 +1,14 @@
+Searching 1177 files for "config.assetts.compile"
+
+0 matches
+
+Searching 1177 files for "config.assets.compile"
+
+/Users/damonclark/Dropbox/nomad/saas/config/environments/production.rb:
+   28  
+   29    # Do not fallback to assets pipeline if a precompiled asset is missed.
+   30:   config.assets.compile = false # Disables security vulnerability
+   31  
+   32    config.assets.digest = true
+
+1 match in 1 file

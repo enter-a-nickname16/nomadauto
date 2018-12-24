@@ -1,0 +1,49 @@
+<div id="wrapper" class="active">
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav" id="sidebar">
+    <li class="nav-link">
+      <%= link_to project_tasks_path,  method: :get, class: "nav-link-text" do %>
+        Tickets <span style="float:right;padding-right: 20px;margin-top:10px;" class="glyphicon glyphicon-tasks"></span>
+      <% end %>
+    </li>
+    <li class="nav-link">
+      <%= link_to project_deals_path,  method: :get, class: "nav-link-text" do %>
+        Knowledge Base <span style="float:right;padding-right: 20px;margin-top:10px;" class="glyphicon glyphicon-equalizer"></span>
+      <% end %>
+    </li>
+    <li class="nav-link">
+      <%= link_to project_companies_path, method: :get, class: "nav-link-text" do %>
+        Customers <span style="float:right;padding-right: 20px;margin-top:10px;" style="float:right;padding-right: 10px;margin-top:10px;" class="glyphicon glyphicon-road"></span>
+      <% end %>
+    </li>
+    <li class="nav-link">
+      <%= link_to project_activities_path, method: :get, class: "nav-link-text" do %>
+        Timeline <span style="float:right;padding-right: 20px;margin-top:10px;" class="glyphicon glyphicon-dashboard"></span>
+      <% end %>
+    </li>
+    <li class="nav-link">
+      <%= link_to project_invites_path, method: :get, class: "nav-link-text" do %>
+        Invite Members <span style="float:right;padding-right: 20px;margin-top:10px;" class="fa fa-user-plus"></span>
+      <% end %>
+    </li>
+    <li class="nav-link">
+      <%= link_to projects_path, class: "nav-link-text" do %>
+        Teams <span style="float:right;padding-right: 20px;margin-top:10px;" class="fa fa-users"></span>
+      <% end %>
+    </li>
+    <li class="nav-link">
+      <%= link_to edit_user_path(current_user), class: "nav-link-text" do %>
+        My Account <span style="float:right;padding-right: 20px;margin-top:10px;" class="glyphicon glyphicon-cog"></span>
+      <% end %>
+    </li>
+    <li class="nav-link">
+      <%= link_to logout_path, method: :delete, class: 'nav-link-text' do %>
+        Logout <span style="float:right;padding-right: 20px;margin-top:10px;" class="glyphicon glyphicon-log-out"></span>
+      <% end %>
+    </li>
+  </ul>
+  <ul id="sidebar" class="sidebar-nav">
+     <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+  </ul>
+</div>

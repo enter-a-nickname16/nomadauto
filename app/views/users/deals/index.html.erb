@@ -1,0 +1,78 @@
+<%= render 'users/sidebar' %></br>
+
+<div class="container-fluid">
+  <div class="well">
+      <%if Deal.exists? %>
+        <div class="col-md-6 col-md-offset-0">
+          <%= column_chart @project.deals.group(:company).sum(:value) %>
+        </div>
+        <div class="col-md-6 col-md-offset-0">
+          <%= pie_chart @project.deals.group(:status).sum(:value) %>  </br></br>
+        </div>
+      <% end %>
+
+      <%= link_to "Add New Business", new_project_deal_path(), :class => "btn btn-default" %></br></br>
+      <div class="col-md-16 col-md-offset-0">
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th>Company</th>
+              <th>Lead</th>
+              <th>Prospect</th>
+              <th>Pending</th>
+              <th>Sold</th>
+              <th>Total</th>
+            </tr>
+
+            <%if Deal.exists? %>
+            <% @deals.each do |deal| %>
+              <tr>
+                <td><%= link_to deal.company, edit_project_deal_path(@project, deal) %></td>
+                <td>
+                  <% if deal.status == "Lead" %>
+                  <%= deal.value %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if deal.status == "Prospect" %>
+                  <%= deal.value %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if deal.status == "Pending" %>
+                  <%= deal.value %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if deal.status == "Sold" %>
+                  <%= deal.value %>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+              <tfoot>
+                <td>
+
+                </td>
+                <td>
+                    <%= Deal.where(:status => "Lead").sum(:value) %>
+                </td>
+                <td>
+                    <%= Deal.where(:status => "Prospect").sum(:value) %>
+                </td>
+                <td>
+                    <%= Deal.where(:status => "Pending").sum(:value) %>
+                </td>
+                <td>
+                    <%= Deal.where(:status => "Sold").sum(:value) %>
+                </td>
+                <td>
+                  <%= Deal.where(:value == "").sum(:value) %>
+                </td>
+              </tfoot>
+            <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container-fluid" style="background-color:#41B3A3;padding-bottom:50px;">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <h3 class="text-center news" style="padding-top:90px;">Request a demo today</h3>
+      <h4 class="text-center" style="padding-bottom:20px;">Provide your inforomation and we will be in touch soon.</h3>
+
+      <%= form_for @contact do |f| %>
+        <div class='field form-group'>
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder: 'Full Name', class: 'form-control visitors' %>
+        </div>
+        <div class='field form-group'>
+          <%= f.label :email %>
+          <%= f.text_field :email, placeholder: 'Email', class: 'form-control visitors' %>
+        </div>
+        <div class='field form-group'>
+          <%= f.label :comments %>
+          <%= f.text_area :comments, class: 'form-control comments visitors',  placeholder: 'Anything in particular your looking to see?', cols: "30", rows: "10" %>
+        </div>
+          <%= f.submit 'Schedule a demo', class: 'btn btn-default' %>
+      <% end %>
+    </div>
+    <div class="col-md-3 col-md-offset-1">
+      <h3 class="text-center" style="padding-top:100px;text-align:left;">Contact</h3>
+      <hr></hr>
+      <h4><a style="color:white;" href="mailto:admin@nomadagile.com">admin@nomadagile.com</a></h4>
+    </div>
+  </div>
+</div>
+

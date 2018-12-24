@@ -1,0 +1,50 @@
+<%= form_for @user, html: {id: 'pro_form'} do |f| %>
+
+  <%= hidden_field_tag 'plan', params[:plan] %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field form-group">
+    <%= f.label :name, 'Name' %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "off", placeholder: "Full Name", class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :email, 'Email' %><br />
+    <%= f.email_field :email, placeholder: "Email", class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :password, 'Password' %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :password_confirmation, 'Confirmation' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Passoword Confirmation", class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :subdomain, 'Nomad Agile URL' %><br />
+    <%= f.text_field :subdomain, autocomplete: "off", placeholder: "Nomad Agile URL", class: 'form-control' %>
+  </div>
+  <div class="input-group-text">
+    <p>nomadagile.com</p>
+  </div>
+  <div class="field form-group">
+    <%= label_tag :card_number, "Credit Card Number" %>
+    <%= text_field_tag :card_number, nil, name: nil, placeholder: "Credit Card Number" ,class: "form-control" %>
+  </div>
+  <div class="field form-group">
+    <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+    <%= text_field_tag :card_code, nil, name: nil, placeholder: "Security Code on Card (CVV)", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :card_month, "Card Expiration" %>
+    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month" } %>
+    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year" } %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Sign up", class: 'btn btn-success', id: 'form-submit-btn' %>
+  </div>
+  </br>
+<% end %>

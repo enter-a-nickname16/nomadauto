@@ -1,0 +1,35 @@
+<%= render 'users/sidebar' %></br>
+
+<div class="container-fluid">
+  <div class="well">
+    <div class="col-md-16 col-md-offset-0">
+      <%= link_to "Add New Contact", new_project_company_path, :class => "btn btn-default" %></br></br>
+    </div>
+      <div class="table-responsive">
+        <table class="table">
+          <tr>
+              <th>Company</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Phone Number</th>
+              <th>Website</th>
+              <th>Email</th>
+              <th></th>
+              <th></th>
+          </tr>
+          <%if Company.exists? %>
+            <% @companies.each do |company| %>
+                <tr>
+                  <td><%= link_to company.company, edit_project_company_path(@project, company) %></td>
+                  <td><%= company.first_name %></td>
+                  <td><%= company.last_name %></td>
+                  <td><%= company.phone_number %></td>
+                  <td><%= company.website %></td>
+                  <td><%= company.email %></td>
+                </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+  </div>
+</div>

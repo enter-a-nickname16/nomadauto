@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div style="padding-bottom:320px;" class="col-md-6 col-md-offset-3">
+      <div style="padding-top:75px;" class="well">
+
+      <% provide(:title, "Log in") %>
+      <h1>Log in</h1>
+
+          <%= form_for(:session, url: login_path) do |f| %>
+
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'form-control' %>
+
+            <%= f.label :password %>
+            <%= link_to "(forgot password)", new_password_reset_path %>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.label :remember_me, class: "checkbox inline" do %>
+              <%= f.check_box :remember_me %>
+              <span>Remember me on this computer</span>
+            <% end %>
+
+            <%= f.submit "Log in", class: "btn btn-default" %>
+          <% end %>
+
+          <p>New user? <%= link_to "Sign up now!", signup_path(plan: @basic_plan.id) %></p>
+      </div>
+    </div>
+  </div>
+</div>
