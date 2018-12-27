@@ -6,7 +6,7 @@ class VisitorsController < ApplicationController
     @visitor = Visitor.new
     if Plan.first == nil
       Plan.create(name: 'basic', price: 0)
-      Plan.create(name: 'pro', price: 10)
+      Plan.create(name: 'pro', price: 49)
       Plan.create(name: 'invite', price: 0)
     end
     # GET request for which / is our home page
